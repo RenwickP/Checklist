@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState, useRef } from "react";
+
 import List from "./List";
 
 function App() {
-  const [todos, setTodos] = useState(["todo1", "todo2"]);
+  let [todos, setTodos] = useState([]);
+  const todoNameRef = useRef;
+  function addTodo(e) {
+    const name = todoNameRef.current.value;
+    if (name === "") return;
+  }
   return (
     <>
-      <List toDoList={todos} />
+      <List todoList={todos} />
 
-      <input type="text" />
-      <button> Add</button>
+      <input ref={todoNameRef} type="text" />
+      <button onClick={addTodo}> Add</button>
       <button> Clear </button>
       <div>0 left</div>
     </>
